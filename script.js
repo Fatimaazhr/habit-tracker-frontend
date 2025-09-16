@@ -118,9 +118,15 @@ function createHabitCard(habit) {
   card.className = "bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow"
 
   const colorClasses = {
-    primary: "text-primary-600 bg-primary-100",
-    accent: "text-accent-600 bg-accent-100",
-    secondary: "text-secondary-600 bg-secondary-100",
+    primary: "text-green-600 bg-green-100",
+    accent: "text-yellow-600 bg-yellow-100",
+    secondary: "text-gray-600 bg-gray-100",
+  }
+
+  const progressBarColor = {
+    primary: "#22c55e",
+    accent: "#f59e0b",
+    secondary: "#64748b",
   }
 
   card.innerHTML = `
@@ -135,7 +141,7 @@ function createHabitCard(habit) {
             <button onclick="toggleHabit(${habit.id})" class="ml-4 p-2 rounded-full hover:bg-gray-100 transition-colors">
                 ${
                   habit.completed
-                    ? '<svg class="w-6 h-6 text-primary-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>'
+                    ? '<svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>'
                     : '<svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>'
                 }
             </button>
@@ -148,7 +154,7 @@ function createHabitCard(habit) {
                     <span>${habit.weeklyProgress}%</span>
                 </div>
                 <div class="bg-gray-200 rounded-full h-2">
-                    <div class="bg-${habit.color}-500 h-2 rounded-full transition-all duration-300" style="width: ${habit.weeklyProgress}%"></div>
+                    <div class="h-2 rounded-full transition-all duration-300" style="width: ${habit.weeklyProgress}%; background-color: ${progressBarColor[habit.color]}"></div>
                 </div>
             </div>
             
