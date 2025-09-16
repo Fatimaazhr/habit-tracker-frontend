@@ -1,35 +1,35 @@
 # HabitFlow - Smart Habit Tracker
 
-Frontend dashboard untuk aplikasi habit tracker dengan sistem pendukung keputusan (SPK) yang dibangun menggunakan Next.js dan TailwindCSS.
+Frontend dashboard untuk aplikasi habit tracker dengan sistem pendukung keputusan (SPK) yang dibangun menggunakan HTML, CSS, dan JavaScript vanilla.
 
 ## Fitur
 
-- 📊 **Dashboard Analytics** - Visualisasi progress habit dengan charts interaktif
+- 📊 **Dashboard Analytics** - Visualisasi progress habit dengan Chart.js
 - 🎯 **Habit Tracking** - Track kebiasaan harian dengan streak counter
 - 🧠 **SPK Recommendations** - Rekomendasi cerdas berdasarkan data habit
 - 📱 **Responsive Design** - Optimized untuk desktop dan mobile
-- 🎨 **Modern UI** - Clean design dengan TailwindCSS dan shadcn/ui
+- 🎨 **Modern UI** - Clean design dengan TailwindCSS
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: TailwindCSS v4
-- **UI Components**: shadcn/ui + Radix UI
-- **Charts**: Recharts
-- **Icons**: Lucide React
-- **Deployment**: GitHub Pages (Static Export)
+- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
+- **Styling**: TailwindCSS (CDN)
+- **Charts**: Chart.js
+- **Icons**: SVG icons
+- **Deployment**: GitHub Pages
 
 ## Development
 
+Untuk development lokal, cukup buka file `index.html` di browser atau gunakan live server:
+
 \`\`\`bash
-# Install dependencies
-npm install
+# Menggunakan Python (jika tersedia)
+python -m http.server 8000
 
-# Run development server
-npm run dev
+# Menggunakan Node.js live-server
+npx live-server
 
-# Build for production
-npm run build
+# Atau langsung buka index.html di browser
 \`\`\`
 
 ## Deployment ke GitHub Pages
@@ -39,47 +39,70 @@ npm run build
 1. Push kode ke GitHub repository dengan nama `habit-tracker-frontend`
 2. Go to repository Settings > Pages
 3. Source: Deploy from a branch
-4. Branch: `gh-pages` / `root`
+4. Branch: `main` / `root`
 
 ### Automatic Deployment
 
-GitHub Actions workflow sudah dikonfigurasi untuk automatic deployment:
-- Setiap push ke branch `main` akan trigger build dan deploy
-- Build output akan di-deploy ke branch `gh-pages`
+GitHub Pages akan otomatis serve file `index.html`:
+- Push file ke branch `main`
 - Website akan tersedia di: `https://[username].github.io/habit-tracker-frontend/`
+- Tidak perlu build process karena menggunakan HTML murni
 
 ### Manual Deployment
 
 \`\`\`bash
-# Build static export
-npm run build
-
-# Deploy folder 'out' ke GitHub Pages
+# Cukup upload file index.html dan script.js ke repository
+git add .
+git commit -m "Deploy habit tracker dashboard"
+git push origin main
 \`\`\`
 
 ## Konfigurasi
 
-Project sudah dikonfigurasi untuk GitHub Pages dengan:
-- Static export enabled (`output: 'export'`)
-- Base path configuration untuk GitHub Pages
-- Unoptimized images untuk static hosting
-- GitHub Actions workflow untuk automatic deployment
+Project menggunakan:
+- TailwindCSS via CDN untuk styling
+- Chart.js via CDN untuk visualisasi data
+- Vanilla JavaScript untuk interaktivity
+- Responsive design dengan Tailwind utilities
 
 ## Struktur Project
 
 \`\`\`
-├── app/                    # Next.js App Router pages
-├── components/            # React components
-│   ├── ui/               # shadcn/ui components
-│   ├── habit-card.tsx    # Habit tracking cards
-│   ├── analytics-charts.tsx # Charts dan visualisasi
-│   └── spk-recommendations.tsx # SPK recommendations
-├── .github/workflows/    # GitHub Actions
-└── public/              # Static assets
+├── index.html              # Main HTML file
+├── script.js              # JavaScript functionality
+└── README.md              # Documentation
 \`\`\`
+
+## Fitur Dashboard
+
+### Habit Cards
+- Toggle completion status
+- Weekly progress bars
+- Streak counters
+- Category badges
+
+### Analytics
+- Weekly completion trends (Line chart)
+- Category distribution (Doughnut chart)
+- Real-time progress updates
+
+### SPK Recommendations
+- Warning alerts untuk habits yang menurun
+- Suggestions untuk improvement
+- Achievement celebrations
+- Priority dan confidence scoring
 
 ## Customization
 
-Untuk mengubah base path (jika nama repository berbeda):
-1. Update `basePath` dan `assetPrefix` di `next.config.mjs`
-2. Update workflow file di `.github/workflows/deploy.yml`
+Untuk mengubah tema atau menambah fitur:
+1. Edit `script.js` untuk menambah data atau functionality
+2. Modify `index.html` untuk mengubah layout
+3. Gunakan Tailwind classes untuk styling adjustments
+
+## Browser Support
+
+Compatible dengan semua modern browsers:
+- Chrome 60+
+- Firefox 55+
+- Safari 12+
+- Edge 79+
